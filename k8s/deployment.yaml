@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-spring-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-spring-app
+  template:
+    metadata:
+      labels:
+        app: my-spring-app
+    spec:
+      containers:
+        - name: my-spring-app
+          image: 992382840179.dkr.ecr.us-east-1.amazonaws.com/my-spring-app:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-spring-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: my-spring-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

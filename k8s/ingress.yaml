@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb  # 若使用 AWS ALB Ingress Controller
+spec:
+  rules:
+    - host: yaohonget.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: my-spring-app-service
+                port:
+                  number: 8080
