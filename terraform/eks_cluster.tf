@@ -5,9 +5,9 @@ resource "aws_eks_cluster" "tf-eks" {
 
   vpc_config {
     subnet_ids = [
-	  aws_subnet.tf_eks_subnet1.id, 
-	  aws_subnet.tf_eks_subnet2.id
-	]
+	  aws_subnet.tf_eks_subnet1.id,
+    aws_subnet.tf_eks_subnet2.id
+  	]
     security_group_ids      = [aws_security_group.eks_allow_all.id]    # 引用之前创建的安全组
     endpoint_public_access  = true     # 公有访问
     endpoint_private_access = true     # 私有访问

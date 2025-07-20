@@ -29,6 +29,6 @@ resource "aws_route_table_association" "tf_eks_subnet1_association" {
 
 # 将路由表关联到子网tf_eks_subnet2
 resource "aws_route_table_association" "tf_eks_subnet2_association" {
-  subnet_id      = aws_subnet.tf_eks_subnet2.id  
+  subnet_id      = aws_subnet.tf_eks_subnet2.id 
   route_table_id = aws_route_table.tf_route_table.id
 }
