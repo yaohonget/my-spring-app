@@ -70,7 +70,7 @@ jobs:
 
       - name: Apply Kubernetes Deployment (create/update)
         run: |
-          kubectl apply -f terraform/k8s/deployment.yaml
+          kubectl apply -f k8s/deployment.yaml
 
       - name: Update Image in Deployment
         run: |
