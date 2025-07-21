@@ -68,7 +68,11 @@ jobs:
       - name: Test kubectl access
         run: kubectl get nodes
 
-      - name: Deploy to EKS
+      - name: Apply Kubernetes Deployment (create/update)
         run: |
-          kubectl set image deployment/my-spring-app my-spring-app=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --record
           kubectl apply -f terraform/k8s/deployment.yaml
+
+      - name: Update Image in Deployment
+        run: |
+          kubectl set image deployment/my-spring-app \
+            my-spring-app=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
