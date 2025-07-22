@@ -6,6 +6,10 @@ resource "aws_ecr_repository" "my_spring_app" {
     scan_on_push = true
   }
 
+  lifecycle {
+    prevent_destroy = false
+  }
+
   tags = {
     Name = "my-spring-app"
   }
