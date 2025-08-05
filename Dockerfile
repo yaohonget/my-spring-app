@@ -5,6 +5,9 @@ WORKDIR /app
 # Copy Gradle project files
 COPY . .
 
+ENV test1=1
+
+
 # Build the project (this will generate the .jar in build/libs)
 RUN gradle clean build --no-daemon
 

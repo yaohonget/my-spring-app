@@ -1,6 +1,6 @@
 package com.hong.myspringapp.controller;
 
-import com.hong.myspringapp.HelloService;
+import com.hong.myspringapp.service.HelloService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
